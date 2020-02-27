@@ -35,7 +35,6 @@ def funy(t) :
         ytemp = y + vy*delta_t
         return ytemp
 
-#Main
 arrX = []
 arrY = []
 print("Vx = ","%.3f" % vx,"m/s")
@@ -66,8 +65,8 @@ y,x,t = 0.0,0.0,0.0
 vx = v*cos(radians(sudut))
 vy = v*sin(radians(sudut))
 v = sqrt(vx*vx+vy*vy)
-ax = 0
-ay = 0
+ax = -(D/m)*v*vx
+ay = -g-(D/m)*v*vy
 print("\n\n")
 print("Dengan mempertimbangkan hambatan udara")
 print('t\t\t x\t\t\tvy\t\t\ty')
@@ -79,13 +78,14 @@ while y >=0 :
     stringx = "%.3f" % x
     stringy = "%.6f" % y
     print(stringt, '\t', stringx, '\t', stringvy, '\t', stringy)
+    t = t + delta_t
+    vy = vy+ay*delta_t
+    vx = vx+ax*delta_t
+    v = sqrt(vx * vx + vy * vy)
     ax = -(D/m)*v*vx
     ay = -g-(D/m)*v*vy
     x = funx(t)
     y = funy(t)
-    vx = vx + ax*delta_t
-    vy = vy + ay*delta_t
-    t = t + delta_t
 
 print('Jika hambatan udara tidak diperhitungkan, posisi benda berada di : (',arrX[len(arrX)-1],',0)')
 print('Jika hambatan diperhitungkan, posisi benda berada di : (',arrX2[len(arrX2)-1],',0)')
