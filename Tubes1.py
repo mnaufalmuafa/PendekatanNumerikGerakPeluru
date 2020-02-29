@@ -9,7 +9,7 @@ plt.style.use('ggplot')
 
 v = 50
 sudut = 35
-delta_t = 0.01
+delta_t = 0.001
 print('Kecepatan awal : ', v, ' m/s')
 print('Sudut tembak : ', sudut, ' derajat')
 print('Time step : ', delta_t, ' s')
@@ -46,7 +46,7 @@ print('t\t\t x\t\t\tvy\t\t\ty')
 while y >= 0:
     arrX.append(x)
     arrY.append(y)
-    stringt = "%.2f" % t
+    stringt = "%.3f" % t
     stringvy = "%.3f" % vy
     stringx = "%.3f" % x
     stringy = "%.6f" % y
