@@ -7,9 +7,9 @@ from matplotlib import pyplot as plt
 plt.style.use('fivethirtyeight')
 plt.style.use('ggplot')
 
-v = 50
+v = 50 #inisialisasi
 sudut = 35
-delta_t = 0.001
+delta_t = 0.01
 print('Kecepatan awal : ', v, ' m/s')
 print('Sudut tembak : ', sudut, ' derajat')
 print('Time step : ', delta_t, ' s')
@@ -44,20 +44,20 @@ print("")
 print("Tanpa memperhitungkan hambatan udara")
 print('t\t\t x\t\t\tvy\t\t\ty')
 while y >= 0:
-    arrX.append(x)
+    arrX.append(x) #menyimpan plotingan x,kan setiap x disimpan
     arrY.append(y)
-    stringt = "%.3f" % t
+    stringt = "%.2f" % t
     stringvy = "%.3f" % vy
     stringx = "%.3f" % x
     stringy = "%.6f" % y
     print(stringt,'\t',stringx,'\t',stringvy, '\t', stringy)
-    t = t + delta_t
-    x = funx(t)
+    t = t + delta_t #untuk melanjutkan ke iterasi berikutnya
+    x = funx(t) #update nilai x
     vy = vy - g*delta_t
     y = funy(t)
 
 plt.plot(arrX,arrY)
-arrX2 = []
+arrX2 = [] #menyimpan x dg hambatan
 arrY2 = []
 
 v = 50
